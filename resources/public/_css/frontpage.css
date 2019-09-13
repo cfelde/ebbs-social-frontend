@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css?family=Notable|Roboto');
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+h1 {
+    font-family: 'Notable', sans-serif;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+a, a:visited, a:hover, a:active {
+    color: unset;
+    text-decoration: underline;
+}
+
+#app {
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+#ui {
+    min-height: 100%;
+    position: relative;
+}
+
+#top-header {
+    color: white;
+    background-color: black;
+
+    padding-left: 2px;
+    margin: 0;
+
+    white-space: nowrap;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+#top-header a, #top-header a:visited, #top-header a:active {
+    color: unset;
+    text-decoration: none;
+}
+
+#top-header a:hover {
+    text-decoration: underline;
+}
+
+#create-badge {
+    color: white;
+    background-color: #33aa33;
+    border-radius: 25px;
+    width: 200px;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#intro-text {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: x-large;
+}
+
+#intro-text div {
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+#no-provider {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: xx-large;
+}
+
+#no-provider div {
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+#no-provider #plugins {
+    text-align: center;
+    margin-bottom: unset;
+}
+
+#no-provider #dapper {
+    height: 180px;
+    width: 300px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: unset;
+}
+
+#no-provider #metamask {
+    height: 180px;
+    width: 300px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: unset;
+}
+
+#no-provider #dapper img {
+    width: 300px;
+    height: auto;
+    vertical-align: middle;
+}
+
+#no-provider #metamask img {
+    width: 300px;
+    height: auto;
+    vertical-align: middle;
+}
+
+#network {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: xx-large;
+}
+
+#new-forum {
+}
+
+#new-forum form {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    width: 650px;
+}
+
+#new-forum-header {
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    font-size: 1.5rem;
+}
+
+#new-forum-title-form-group {}
+
+#new-forum-body-form-group {}
+
+#new-forum-link-form-group {}
+
+#new-forum-image-form-group {}
+
+#new-forum-tags {
+    text-align: right;
+}
+
+#new-forum-submit-form-group {
+}
+
+#new-forum-submit-form-group button {
+    width: 100px;
+}
+
+.remaining-storage-space {
+    padding-top: 10px;
+    text-align: right;
+}
+
+.text-green {
+    color: green;
+}
+
+.text-red {
+    color: red;
+}
+
+#footer-clearance {
+    padding-bottom: 100px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    padding-top: 5px;
+    background-color: gray;
+    color: white;
+    font-size: 0.7rem;
+    text-align: center;
+    overflow: auto;
+}
+
+@media (max-width: 1000px) {
+    #create-badge {
+        position: unset;
+        top: unset;
+        right: unset;
+
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+
+        width: calc(100% - 10px);
+    }
+}
+
+@media (max-height: 1000px) {
+    #intro-text {
+        padding-top: 10px;
+    }
+}

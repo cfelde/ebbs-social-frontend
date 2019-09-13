@@ -1,0 +1,421 @@
+{
+  "contractName": "IEbbsSocialForum",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "author",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "inReplyToAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "inReplyTo",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "postId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "postData",
+          "type": "bytes"
+        },
+        {
+          "indexed": false,
+          "name": "postMeta",
+          "type": "bytes"
+        }
+      ],
+      "name": "Posted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "voter",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "postId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "points",
+          "type": "int256"
+        },
+        {
+          "indexed": false,
+          "name": "diff",
+          "type": "int256"
+        },
+        {
+          "indexed": false,
+          "name": "newTotalPoints",
+          "type": "int256"
+        }
+      ],
+      "name": "Voted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "changedAdmin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "adminStatus",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChangedAdmin",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getEbbsVersion",
+      "outputs": [
+        {
+          "name": "ebbsVersion",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getPostCount",
+      "outputs": [
+        {
+          "name": "postCount",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "inReplyTo",
+          "type": "uint256"
+        },
+        {
+          "name": "postData",
+          "type": "bytes"
+        }
+      ],
+      "name": "createPost",
+      "outputs": [
+        {
+          "name": "postId",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "postId",
+          "type": "uint256"
+        },
+        {
+          "name": "postData",
+          "type": "bytes"
+        }
+      ],
+      "name": "updatePost",
+      "outputs": [
+        {
+          "name": "updated",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "postId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPost",
+      "outputs": [
+        {
+          "name": "author",
+          "type": "address"
+        },
+        {
+          "name": "timestamp",
+          "type": "uint256"
+        },
+        {
+          "name": "inReplyTo",
+          "type": "uint256"
+        },
+        {
+          "name": "replyCounter",
+          "type": "uint256"
+        },
+        {
+          "name": "pointCounter",
+          "type": "int256"
+        },
+        {
+          "name": "postData",
+          "type": "bytes"
+        },
+        {
+          "name": "postMeta",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "postId",
+          "type": "uint256"
+        },
+        {
+          "name": "points",
+          "type": "int256"
+        }
+      ],
+      "name": "vote",
+      "outputs": [
+        {
+          "name": "newPointCounter",
+          "type": "int256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "postId",
+          "type": "uint256"
+        },
+        {
+          "name": "voter",
+          "type": "address"
+        }
+      ],
+      "name": "getVoteOnPost",
+      "outputs": [
+        {
+          "name": "points",
+          "type": "int256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "author",
+          "type": "address"
+        }
+      ],
+      "name": "getAuthorPoints",
+      "outputs": [
+        {
+          "name": "points",
+          "type": "int256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "postId",
+          "type": "uint256"
+        },
+        {
+          "name": "oldMeta",
+          "type": "bytes"
+        },
+        {
+          "name": "newMeta",
+          "type": "bytes"
+        }
+      ],
+      "name": "setMeta",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "admin",
+          "type": "address"
+        }
+      ],
+      "name": "isAdmin",
+      "outputs": [
+        {
+          "name": "adminStatus",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "admin",
+          "type": "address"
+        },
+        {
+          "name": "adminStatus",
+          "type": "uint256"
+        }
+      ],
+      "name": "setAdmin",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getAdminCount",
+      "outputs": [
+        {
+          "name": "count",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAdmin",
+      "outputs": [
+        {
+          "name": "admin",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isActive",
+      "outputs": [
+        {
+          "name": "active",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "name": "setActive",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "kill",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-09-06T21:22:03.997Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

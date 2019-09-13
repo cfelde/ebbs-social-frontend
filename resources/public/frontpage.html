@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" rel="stylesheet" crossorigin="anonymous">
+
+    <link href="/_css/frontpage.css" rel="stylesheet" type="text/css">
+
+    <title>EBBS social</title>
+  </head>
+  <body>
+    <div id="app">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- https://github.com/ethereum/blockies -->
+    <script type="text/javascript" src="/_js/blockies.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pako@1.0.10/dist/pako.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.0/dist/web3.min.js"></script>
+
+    <script type="text/javascript" src="/_js/blockchain.js"></script>
+    <script type="text/javascript" src="/_js/compiled/ebbs_social_frontend_frontpage.js"></script>
+
+    <script>
+      async function getProvider() {
+        let web3Provider;
+
+        // Modern dapp browsers...
+        if (window.ethereum) {
+          web3Provider = window.ethereum;
+
+          try {
+            // Request account access
+            await window.ethereum.enable();
+          } catch (error) {
+            // User denied account access...
+            console.error("User denied account access")
+          }
+        }
+        // Legacy dapp browsers...
+        else if (window.web3) {
+          web3Provider = window.web3.currentProvider;
+        }
+        // If no injected web3 instance is detected, fall back to Ganache..
+        else {
+          web3Provider = null; //new Web3.providers.HttpProvider('http://localhost:7545');
+        }
+
+        return web3Provider == null ? null : new Web3(web3Provider);
+      }
+
+      async function run() {
+        ebbs_social_frontend.frontpage.core.run();
+
+        let provider = await getProvider();
+        ebbs_social_frontend.frontpage.core.inject_provider(provider);
+      }
+
+      if (document.readyState != 'loading') {
+        run();
+      } else {
+        document.addEventListener('DOMContentLoaded', run);
+      }
+    </script>
+  </body>
+</html>
