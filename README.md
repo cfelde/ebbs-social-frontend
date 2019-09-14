@@ -7,6 +7,7 @@ This is the frontend UI code for [EBBS social](https://github.com/cfelde/ebbs-so
 Assuming you have [Leiningen](https://leiningen.org/) installed you can run the UI locally with these two commands:
 
 run_dev.sh: Will build and start in dev mode with Figwheel enabled
+
 run_min.sh: Will build and start in production mode.
 
 If you just want to try it out, see [ebbs.social](https://ebbs.social)
