@@ -48,9 +48,9 @@
         else if (window.web3) {
           web3Provider = window.web3.currentProvider;
         }
-        // If no injected web3 instance is detected, fall back to Ganache..
+        // If no injected web3 instance is detected, return null..
         else {
-          web3Provider = null; //new Web3.providers.HttpProvider('http://localhost:7545');
+          web3Provider = null;
         }
 
         return web3Provider == null ? null : new Web3(web3Provider);
