@@ -1,8 +1,8 @@
 (defproject ebbs-social-frontend "0.1.0-SNAPSHOT"
   :description "Web frontend for EBBS social"
   :url "https://ebbs.social"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :license {:name "Apache License Version 2.0"
+            :url "http://www.apache.org/licenses/"}
 
   :min-lein-version "2.9.1"
 
